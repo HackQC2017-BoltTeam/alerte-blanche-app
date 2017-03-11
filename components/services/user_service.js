@@ -1,7 +1,9 @@
 let userService = null;
 
 var singleton = {
-    user: {},
+    user: {
+        email: 'william57m@gmail.com'
+    },
 
     getUser: function(user) {
         return this.user;
