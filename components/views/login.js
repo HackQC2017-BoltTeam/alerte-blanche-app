@@ -32,7 +32,8 @@ class LoginView extends Component {
     login() {
         var fakeUser = {
             email: 'william57m@gmail.com',
-            plate: 'ABC123'
+            plate: 'ABC 123',
+            countReference: 2
         }
         UserService.setUser(fakeUser);
         this.setState({ redirectToReferrer: true });

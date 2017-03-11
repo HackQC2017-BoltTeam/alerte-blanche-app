@@ -22,7 +22,8 @@ class ProfileView extends Component {
         return (
             <View style={styles.container}>
                 <Text>Email: {user.email}</Text>
-                <Text>Number of recompense</Text>
+                <Text>Ma plaque: {user.plate}</Text>
+                <Text>Nombre de signalement: {user.countReference} (Gain de {user.countReference * 5}$)</Text>
             </View>
         )
     }

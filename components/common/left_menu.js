@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { Link } from 'react-router-native'
+import Router, { Link } from 'react-router-native'
 
 // Services
 import UserService from '../services/user_service';
@@ -16,26 +16,32 @@ const styles = StyleSheet.create({
         fontSize: 18,
         padding: 10,
         color: '#FFFFFF',
-        backgroundColor: '#505050'
+        backgroundColor: '#505050',
+        borderBottomWidth: 1,
+        borderBottomColor: '#E0E0E0',
+        borderStyle: 'solid'
     }
 });
 
 // View
 class Menu extends Component {
+    goTo(link) {
+        this.props.goTo(link);
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Link to="/"><Text style={styles.button}>Home</Text></Link>
+                <Link to="/" onPress={this.goTo.bind(this, 'welcome')}><Text style={styles.button}>Home</Text></Link>
                 {UserService.isLogged() ?
                     <View>
-                        <Link to="/camera"><Text style={styles.button}>Signaler</Text></Link>
-                        <Link to="/map"><Text style={styles.button}>Parking</Text></Link>
-                        <Link to="/profile"><Text style={styles.button}>Profile</Text></Link>
-                        <Link to="/logout"><Text style={styles.button}>Logout</Text></Link>
+                        <Link to="/camera"  onPress={this.goTo.bind(this, 'camera')}><Text style={styles.button}>Signaler</Text></Link>
+                        <Link to="/parking" onPress={this.goTo.bind(this, 'parking')}><Text style={styles.button}>Parking</Text></Link>
+                        <Link to="/profile" onPress={this.goTo.bind(this, 'profile')}><Text style={styles.button}>Profile</Text></Link>
+                        <Link to="/logout"  onPress={this.goTo.bind(this, 'logout')}><Text style={styles.button}>Logout</Text></Link>
                     </View> : null
                 }
                 {!UserService.isLogged() ?
-                    <Link to="/login"><Text style={styles.button}>Login</Text></Link> : null
+                    <Link to="/login"       onPress={this.goTo.bind(this, 'login')}><Text style={styles.button}>Login</Text></Link> : null
                 }
             </View>
         );
