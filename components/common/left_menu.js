@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
 
 
 class Menu extends Component {
+    goToPage(index) {
+        this.props.navigator.replace({ id: index });
+    }
+
     render() {
         return (
             <View>
-                <Text>
-                    Menu 1
-                </Text>
-                <Text>
-                    Menu 2
-                </Text>
-                <Text>
-                    Menu 3
-                </Text>
-                <Text>
-                    Menu 4
-                </Text>
+                <Button title="Welcome Page" onPress={this.goToPage.bind(this, 'first')} />
+                <Button title="Take Photo" onPress={this.goToPage.bind(this, 'second')} />
             </View>
         );
     }

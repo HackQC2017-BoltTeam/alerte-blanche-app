@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import {
     AppRegistry,
+    Navigator,
     StyleSheet,
     Text,
     View
@@ -16,18 +17,14 @@ import Menu from './components/common/left_menu';
 import SideMenu from 'react-native-side-menu';
 
 
-
-export default class MobileApp extends Component {
+class FirstView extends Component {
     render() {
-        var menu = <Menu />;
+        var menu = <Menu navigator={this.props.navigator} />;
         return (
             <SideMenu menu={menu}>
                 <View style={styles.container}>
                     <Text style={styles.welcome}>
-                        Welcome to React Native!
-                    </Text>
-                    <Text style={styles.instructions}>
-                        To get started, edit index.ios.js
+                        Welcome to HackQC 2017
                     </Text>
                     <Text style={styles.instructions}>
                         Press Cmd+R to reload,{'\n'}
@@ -35,6 +32,62 @@ export default class MobileApp extends Component {
                     </Text>
                 </View>
             </SideMenu>
+        )
+    }
+}
+
+class SecondView extends Component {
+    render() {
+        var menu = <Menu navigator={this.props.navigator} />;
+        return (
+            <SideMenu menu={menu}>
+                <View style={styles.container}>
+                    <Text style={styles.welcome}>
+                        Second View
+                    </Text>
+                </View>
+            </SideMenu>
+        )
+    }
+}
+
+class MenuNavigator extends Component {
+    constructor(props) {
+        super(props);
+    }
+    renderScene(route, nav) {
+        switch (route.id) {
+            case 'first':
+                return <FirstView navigator={nav} />;
+            case 'second':
+                return <SecondView navigator={nav} />;
+            default:
+                return <FirstView navigator={nav} />;
+        }
+    }
+    configureScene(route) {
+        if (route.sceneConfig) {
+            return route.sceneConfig;
+        }
+        return Navigator.SceneConfigs.FloatFromBottom;
+    }
+
+    render() {
+        return (
+            <Navigator
+                initialRoute={{id: 'first'}}
+                renderScene={this.renderScene}
+                configureScene={this.configureScene} />
+        );
+    }
+}
+
+
+
+export default class MobileApp extends Component {
+    render() {
+        return (
+            <MenuNavigator />
         );
     }
 }
