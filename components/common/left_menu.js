@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, StyleSheet } from 'react-native';
 
+// Style
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: "#ffffff",
+    },
+});
 
 class Menu extends Component {
     goToPage(index) {
@@ -9,7 +15,7 @@ class Menu extends Component {
 
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Button title="Welcome Page" onPress={this.goToPage.bind(this, 'welcome')} />
                 <Button title="Take Photo" onPress={this.goToPage.bind(this, 'camera')} />
             </View>
