@@ -1,10 +1,10 @@
 // Lib imports
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import SideMenu from 'react-native-side-menu';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 // App imports
 import Menu from '../common/left_menu';
+import UserService from '../services/user_service';
 
 // Style
 const styles = StyleSheet.create({
@@ -16,19 +16,16 @@ const styles = StyleSheet.create({
     },
 });
 
-class WelcomeView extends Component {
+class ProfileView extends Component {
     render() {
+        var user = UserService.getUser()
         return (
             <View style={styles.container}>
-                <Text>
-                    Welcome to HackQC 2017
-                </Text>
-                <Text>
-                    We'll help you to find a parking
-                </Text>
+                <Text>Email: {user.email}</Text>
+                <Text>Number of recompense</Text>
             </View>
         )
     }
 }
 
-module.exports = WelcomeView;
+module.exports = ProfileView;

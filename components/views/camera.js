@@ -69,20 +69,17 @@ class CameraView extends Component {
     }
 
     render() {
-        var menu = <Menu navigator={this.props.navigator} />;
         return (
-            <SideMenu menu={menu}>
-                <View style={styles.container}>
-                    {this.state.sent ?
-                        <Text>
-                            {JSON.stringify(this.state.result)}
-                        </Text>:
-                        <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill} captureTarget={Camera.constants.CaptureTarget.disk}>
-                            <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-                        </Camera>
-                    }
-                </View>
-            </SideMenu>
+            <View style={styles.container}>
+                {this.state.sent ?
+                    <Text>
+                        {JSON.stringify(this.state.result)}
+                    </Text>:
+                    <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill} captureTarget={Camera.constants.CaptureTarget.disk}>
+                        <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+                    </Camera>
+                }
+            </View>
         )
     }
 }

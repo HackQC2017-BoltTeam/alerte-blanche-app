@@ -29,16 +29,13 @@ class SubscriptionView extends Component {
     }
 
     render() {
-        var menu = <Menu navigator={this.props.navigator} />;
         return (
-            <SideMenu menu={menu}>
-                <View style={styles.container}>
-                    {this.state.validated ?
-                        <ResultSubscription /> :
-                        <FormSubscription validateSubscription={this.validateSubscription.bind(this)} />
-                    }
-                </View>
-            </SideMenu>
+            <View style={styles.container}>
+                {this.state.validated ?
+                    <ResultSubscription /> :
+                    <FormSubscription validateSubscription={this.validateSubscription.bind(this)} />
+                }
+            </View>
         )
     }
 }

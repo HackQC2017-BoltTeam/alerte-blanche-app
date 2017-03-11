@@ -1,10 +1,11 @@
 // Lib imports
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import SideMenu from 'react-native-side-menu';
+import { Redirect } from 'react-router-native'
 
 // App imports
-import Menu from '../common/left_menu';
+import UserService from '../services/user_service';
+
 
 // Style
 const styles = StyleSheet.create({
@@ -16,38 +17,47 @@ const styles = StyleSheet.create({
     },
 });
 
+// View
 class LoginView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: ''
+            email: 'william57m@gmail.com',
+            password: 'password',
+            redirectToReferrer: false
         };
     }
 
     login() {
-
+        var fakeUser = {
+            email: 'william57m@gmail.com',
+            plate: 'ABC123'
+        }
+        UserService.setUser(fakeUser);
+        this.setState({ redirectToReferrer: true });
     }
 
     render() {
-        var menu = <Menu navigator={this.props.navigator} />;
+        // If logged, redirect to welcome page
+        if (this.state.redirectToReferrer) {
+            return ( <Redirect to="/" /> );
+        }
+        // Render
         return (
-            <SideMenu menu={menu}>
-                <View style={styles.container}>
-                    <Text>Email</Text>
-                    <TextInput
-                        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                        onChangeText={(text) => this.setState({email: text})}
-                        value={this.state.email} />
-                    <Text>Mot de passe</Text>
-                    <TextInput
-                        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                        onChangeText={(text) => this.setState({password: text})}
-                        secureTextEntry={true}
-                        value={this.state.password} />
-                    <Button title="Valider" onPress={this.login} />
-                </View>
-            </SideMenu>
+            <View style={styles.container}>
+                <Text>Email</Text>
+                <TextInput
+                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                    onChangeText={(text) => this.setState({email: text})}
+                    value={this.state.email} />
+                <Text>Mot de passe</Text>
+                <TextInput
+                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                    onChangeText={(text) => this.setState({password: text})}
+                    secureTextEntry={true}
+                    value={this.state.password} />
+                <Button title="Valider" onPress={this.login.bind(this)} />
+            </View>
         )
     }
 }
