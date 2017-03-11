@@ -6,12 +6,14 @@ import Camera from 'react-native-camera';
 
 // App imports
 import Menu from '../common/left_menu';
+import { Url } from '../common/constants';
 
 // Style
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
+        backgroundColor: '#FFFFFF',
     },
     preview: {
         flex: 1,
@@ -20,7 +22,6 @@ const styles = StyleSheet.create({
     },
     capture: {
         flex: 0,
-        backgroundColor: '#fff',
         borderRadius: 5,
         color: '#000',
         padding: 10,
@@ -29,28 +30,39 @@ const styles = StyleSheet.create({
 });
 
 class CameraView extends Component {
-    sendPicture(image) {
-        // fetch('http://our-api/send/image', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({imageData: image})
-        // }).then((response) => {
-        //     console.log(response);
-        // }).catch((error) => {
-        //     console.log(error);
-        // });
+    constructor(props) {
+        super(props);
+        this.state = {
+            sent: false,
+            result: {}
+        }
+    }
+    sendPicture(urlImage) {
+        var photo = {
+            uri: urlImage,
+            type: 'image/jpeg',
+            name: 'photo.jpg',
+        };
+        var body = new FormData();
+        body.append('file', photo);
+        fetch(Url.photo, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json'
+            },
+            body: body
+        }).then((response) => {
+            response.json().then((response) => {
+                this.setState({result: response});
+            })
+        }).catch((error) => {
+            console.log(error);
+        });
     }
     takePicture() {
         this.refs.camera.capture().then((data) => {
-            // Convert image path to base64 (specific iOS method)
-            // TODO: adapt that for Android
-            NativeModules.ReadImageData.readImage(data.path, (image) => {
-                // Send image
-                this.sendPicture(image);
-            });
+            this.sendPicture(data.path);
+            this.setState({sent: true});
         }).catch((err) => {
             console.error(err)
         });
@@ -61,9 +73,14 @@ class CameraView extends Component {
         return (
             <SideMenu menu={menu}>
                 <View style={styles.container}>
-                    <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill}>
-                        <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
-                    </Camera>
+                    {this.state.sent ?
+                        <Text>
+                            {JSON.stringify(this.state.result)}
+                        </Text>:
+                        <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill} captureTarget={Camera.constants.CaptureTarget.disk}>
+                            <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+                        </Camera>
+                    }
                 </View>
             </SideMenu>
         )

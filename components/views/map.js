@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 
-import AirMapView from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 // App imports
 import Menu from '../common/left_menu';
@@ -11,29 +11,41 @@ import Menu from '../common/left_menu';
 // Style
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'red',
+        position: 'absolute',
+           top: 0,
+           left: 0,
+           right: 0,
+           bottom: 0,
+           justifyContent: 'flex-end',
+           alignItems: 'center',
     },
     map: {
+        flex: 1,
         position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     }
 });
 
-class MapView extends Component {
+class MapPageView extends Component {
     render() {
         var menu = <Menu navigator={this.props.navigator} />;
         return (
             <SideMenu menu={menu}>
                 <View style={styles.container}>
-                    <AirMapView style={styles.map} />
+                    <MapView style={styles.map} initialRegion={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                        }} />
                 </View>
             </SideMenu>
         )
     }
 }
 
-module.exports = MapView;
+module.exports = MapPageView;
