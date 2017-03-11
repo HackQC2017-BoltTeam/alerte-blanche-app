@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 
+import AirMapView from 'react-native-maps';
+
 // App imports
 import Menu from '../common/left_menu';
 
@@ -10,29 +12,28 @@ import Menu from '../common/left_menu';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
+    map: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+    }
 });
 
-class WelcomeView extends Component {
+class MapView extends Component {
     render() {
         var menu = <Menu navigator={this.props.navigator} />;
         return (
             <SideMenu menu={menu}>
                 <View style={styles.container}>
-                    <Text>
-                        Welcome to HackQC 2017
-                    </Text>
-                    <Text>
-                        Press Cmd+R to reload,{'\n'}
-                        Cmd+D or shake for dev menu
-                    </Text>
+                    <AirMapView style={styles.map} />
                 </View>
             </SideMenu>
         )
     }
 }
 
-module.exports = WelcomeView;
+module.exports = MapView;
