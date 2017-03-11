@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
 
 class WelcomeView extends Component {
     render() {
+        console.log("passage");
         var menu = <Menu navigator={this.props.navigator} />;
         return (
             <SideMenu menu={menu}>
