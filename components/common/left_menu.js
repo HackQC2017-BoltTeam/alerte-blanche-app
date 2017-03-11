@@ -10,8 +10,8 @@ class Menu extends Component {
     render() {
         return (
             <View>
-                <Button title="Welcome Page" onPress={this.goToPage.bind(this, 'first')} />
-                <Button title="Take Photo" onPress={this.goToPage.bind(this, 'second')} />
+                <Button title="Welcome Page" onPress={this.goToPage.bind(this, 'welcome')} />
+                <Button title="Take Photo" onPress={this.goToPage.bind(this, 'camera')} />
             </View>
         );
     }
