@@ -2,12 +2,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
 import SideMenu from 'react-native-side-menu';
-
 import { MapView } from 'react-native';
+import Subscribable from 'Subscribable';
 
 // App imports
 import Menu from '../common/left_menu';
 import MapPageView from './map';
+import Constants from '../common/constants';
 
 // Style
 const styles = StyleSheet.create({
@@ -38,7 +39,10 @@ class ParkingRow extends Component {
                         {this.props.parking.arrondissement} {this.props.parking.emplacement}
                     </Text>
                     <Text style={styles.description}>
-                        Distance: {this.props.parking.distance.toFixed(2)}km | Nb places: {this.props.parking.nbr_place} | Gratuit: {this.props.parking.heures}
+                        {this.props.parking.distance ?
+                            <Text>Distance: {this.props.parking.distance.toFixed(2)}km |</Text> : null
+                        }
+                        Nb places: {this.props.parking.nbr_place} | Gratuit: {this.props.parking.heures}
                     </Text>
                 </View>
             </TouchableHighlight>
@@ -52,43 +56,52 @@ class ParkingListView extends Component {
         super(props);
         this.state = {
             currentParking: null,
-            parkings: [
-                {
-                    "arrondissement": "Outremont",
-                    "distance": 0.2594359231187972,
-                    "emplacement": "Sud du 5123, av. Durocher",
-                    "heures": "21h à 7h",
-                    "id_sta": 26,
-                    "juridiction": "Municipale",
-                    "latitude": 45.51839917,
-                    "longitude": -73.59757466,
-                    "nbr_place": 10,
-                    "note_fr": ""
-                }
-            ]
+            parkings: []
         };
     }
+    componentDidMount() {
+        // Listener
+        // this.addListenerOn(this.props.eventEmitter, 'showParkingList', this.goBackFromMap);
+        // Fetch list parkings
+        fetch(Constants.Url.parkings, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => {
+            response.json().then((response) => {
+                this.setState({parkings: response.data});
+            })
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
     openMap(parking) {
-        console.log(parking);
         this.setState({currentParking: parking});
+        // this.props.eventEmitter.emit('openMap');
+    }
+    goBackFromMap() {
+        this.setState({currentParking: null});
     }
     render() {
-        var parkinsRows = this.state.parkings.map((parking) => {
+        var parkingsRows = this.state.parkings.map((parking) => {
             return (
                 <ParkingRow key={parking.id_sta} parking={parking} openMap={this.openMap.bind(this, parking) }/>
             );
         });
         if (this.state.currentParking) {
             return (
-                <MapPageView parking={this.state.currentParking} />
+                <MapPageView parking={this.state.currentParking} goBackFromMap={this.goBackFromMap.bind(this)} />
             );
         }
         return (
             <ScrollView style={styles.container}>
-                {parkinsRows}
+                {parkingsRows}
             </ScrollView>
         )
     }
 }
+Object.assign(ParkingListView.prototype, Subscribable.Mixin);
 
 module.exports = ParkingListView;

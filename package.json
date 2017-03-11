@@ -10,6 +10,7 @@
     "react": "15.4.2",
     "react-native": "0.42.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
+    "react-native-global-event-emitter": "^0.2.0",
     "react-native-navbar": "^1.6.3",
     "react-native-side-menu": "^0.20.1",
     "react-router-native": "^4.0.0"

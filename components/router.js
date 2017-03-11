@@ -5,6 +5,8 @@ import { Navigator, View, Text, StyleSheet } from 'react-native';
 import { NativeRouter, Route, Link, Redirect } from 'react-router-native'
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
+import EventEmitter from 'EventEmitter';
+import Subscribable from 'Subscribable';
 
 // App imports
 import LeftMenu from './common/left_menu';
@@ -45,15 +47,37 @@ const PrivateRoute = ({ component, ...rest }) => (
     )}/>
 )
 
-
 class Router extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isMenuOpen: false,
-            titleNavbar: 'Bienvenue'
+            titleNavbar: 'Bienvenue',
+            titleLeftMenu: 'Menu',
+            handlerLeftMenu: this.toggleMenuState.bind(this)
         };
+        this.eventEmitter = new EventEmitter();
     }
+    componentDidMount() {
+        // this.addListenerOn(this.eventEmitter, 'openMap', this.openMapHandler.bind(this));
+        // this.addListenerOn(this.eventEmitter, 'closeMap', this.closeMapHandler.bind(this));
+    }
+
+    // Map handler
+    openMapHandler() {
+        this.setState({
+            titleLeftMenu: 'Back',
+            handlerLeftMenu: () => {this.eventEmitter.emit('showParkingList');}
+        });
+    }
+    closeMapHandler() {
+        this.setState({
+            titleNavbar: 'Parkings',
+            titleLeftMenu: 'Menu',
+            handlerLeftMenu: this.toggleMenuState
+        });
+    }
+
     onChangeMenuState(isOpen) {
         this.setState({isMenuOpen: isOpen});
     }
@@ -76,21 +100,28 @@ class Router extends Component {
         }
         this.setState({titleNavbar: title});
     }
+
+
     render() {
         // Menu
         var menu = <LeftMenu toggleMenuState={this.toggleMenuState} goTo={this.goTo.bind(this)} />;
         // Navigation Bar
-        const title = { title: this.state.titleNavbar };
         const leftButtonNavbar = {
             title: 'Menu',
-            handler: (() => { this.toggleMenuState(); })
+            handler: this.state.handlerLeftMenu.bind(this)
         };
+        var me = this;
+        class ParkingListViewWithEvent extends Component {
+            render() {
+                return <ParkingListView eventEmitter={me.eventEmitter} />;
+            }
+        }
         // Render
         return (
             <NativeRouter onUpdate={this.onEnter}>
                 <View style={styles.container}>
                     <SideMenu menu={menu} isOpen={this.state.isMenuOpen} onChange={this.onChangeMenuState.bind(this)}>
-                        <NavigationBar title={title} leftButton={leftButtonNavbar} />
+                        <NavigationBar title={{title: this.state.titleNavbar}} leftButton={leftButtonNavbar} />
 
                         <Route exact path="/" onEnter={this.onEnter} component={WelcomeView} />
 
@@ -99,7 +130,7 @@ class Router extends Component {
                         <Route path="/subscription" component={SubscriptionView} />
 
                         <PrivateRoute path="/camera" component={CameraView} />
-                        <PrivateRoute path="/parking"  component={ParkingListView} />
+                        <PrivateRoute path="/parking"  component={ParkingListViewWithEvent} />
                         <PrivateRoute path="/profile" component={ProfileView} />
                     </SideMenu>
                 </View>
@@ -107,5 +138,6 @@ class Router extends Component {
         );
     }
 }
+Object.assign(Router.prototype, Subscribable.Mixin);
 
 module.exports = Router;

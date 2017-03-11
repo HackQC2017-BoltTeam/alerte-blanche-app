@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
+    },
+    navbar: {
+        position: 'absolute',
+        top: 50,
+        left: 0
     }
 });
 
@@ -42,13 +47,19 @@ class MapPageView extends Component {
         }
     }
     render() {
+        // Navigation Bar
+        const leftButtonNavbar = {
+            title: 'Back',
+            handler: (() => { this.props.goBackFromMap(); })
+        };
         return (
             <View style={styles.container}>
+                <NavigationBar title={{title: 'Map'}} leftButton={leftButtonNavbar} style={styles.navbar} />
                 <MapView
                     style={styles.map}
                     showsUserLocation={true}
                     annotations={this.state.annotations}
-                    region={this.state.mapRegion} />
+                    region={this.state.region} />
             </View>
         )
     }

@@ -3,7 +3,8 @@ var CONSTANTS = {
 };
 
 var URL = {
-    photo: CONSTANTS.SERVER_URL + '/photo'
+    photo: CONSTANTS.SERVER_URL + '/photo',
+    parkings: CONSTANTS.SERVER_URL + '/parkings',
 };
 
 module.exports = {
