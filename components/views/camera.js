@@ -1,6 +1,6 @@
 // Lib imports
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NativeModules, StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import Camera from 'react-native-camera';
 
@@ -27,10 +27,30 @@ const styles = StyleSheet.create({
         margin: 40
     }
 });
+
 class CameraView extends Component {
+    sendPicture(image) {
+        // fetch('http://our-api/send/image', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({imageData: image})
+        // }).then((response) => {
+        //     console.log(response);
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+    }
     takePicture() {
-        this.camera.capture().then((data) => {
-            console.log(data)
+        this.refs.camera.capture().then((data) => {
+            // Convert image path to base64 (specific iOS method)
+            // TODO: adapt that for Android
+            NativeModules.ReadImageData.readImage(data.path, (image) => {
+                // Send image
+                this.sendPicture(image);
+            });
         }).catch((err) => {
             console.error(err)
         });
@@ -41,12 +61,7 @@ class CameraView extends Component {
         return (
             <SideMenu menu={menu}>
                 <View style={styles.container}>
-                    <Camera
-                        ref={(cam) => {
-                            this.camera = cam;
-                        }}
-                        style={styles.preview}
-                        aspect={Camera.constants.Aspect.fill}>
+                    <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill}>
                         <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
                     </Camera>
                 </View>
