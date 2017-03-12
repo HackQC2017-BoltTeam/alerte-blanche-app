@@ -35,16 +35,20 @@ PushNotification.configure({
         console.log('NOTIFICATION:', notification);
 
         if ('google.message_id' in notification) {
-            console.log('google');
             PushNotification.localNotification({
                 title: notification.title,
                 message: notification.message,
+                action: notification.action,
                 playSound: true,
                 soundName: 'default',
                 number: '10',
                 vibrate: true,
                 vibration: 300,
             });
+        } else if (notification.foreground === false && notification.userInteraction === true) {
+            if (notification.action === 'towing_alert') {
+                console.log(this);
+            }
         }
 
     },
