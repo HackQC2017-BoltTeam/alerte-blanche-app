@@ -1,13 +1,14 @@
 'use strict';
 
+// Lib imports
 import React, { Component } from 'react';
-import { Navigator, View, Text, StyleSheet, Platform } from 'react-native';
-import { NativeRouter, Route, Link, Redirect } from 'react-router-native'
+import { View, StyleSheet, Platform } from 'react-native';
+import { NativeRouter, Route, Redirect } from 'react-router-native'
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
+import store from 'react-native-simple-store';
 import EventEmitter from 'EventEmitter';
 import Subscribable from 'Subscribable';
-import store from 'react-native-simple-store';
 
 // App imports
 import LeftMenu from './common/left_menu';
@@ -26,6 +27,7 @@ import ParkingListView from './views/parking_list';
 import MapView from './views/map';
 import ProfileView from './views/profile';
 
+// Android specific
 if (Platform.OS === 'android') {
     var PushService = require('./services/push_service').PushNotification;
     var setEmitter = require('./services/push_service').setEmitter;
@@ -64,37 +66,24 @@ class Router extends Component {
             handlerLeftMenu: this.toggleMenuState.bind(this),
             displayParking: false
         };
-        this.eventEmitter = new EventEmitter();
-        setEmitter(this.eventEmitter);
+        // FIXME: Trick Android for notification
+        if (Platform.OS === 'android') {
+            this.eventEmitter = new EventEmitter();
+            setEmitter(this.eventEmitter);
+        }
     }
     componentDidMount() {
-        this.addListenerOn(this.eventEmitter, 'pushNewView', (result) => {
-            this.setState({displayParking: true, payload: result});
-        });
-        // this.addListenerOn(this.eventEmitter, 'closeMap', this.closeMapHandler.bind(this));
-
+        // FIXME: Trick Android for notification
+        if (Platform.OS === 'android') {
+            this.addListenerOn(this.eventEmitter, 'pushNewView', (result) => {
+                this.setState({displayParking: true, payload: result});
+            });
+        }
         // Get user from local storage
         store.get('user').then((user) => {
-            if (user) {
-                UserService.setUser(user);
-            }
+            if (user) { UserService.setUser(user); }
         })
     }
-
-    // Map handler
-    // openMapHandler() {
-    //     this.setState({
-    //         titleLeftMenu: 'Back',
-    //         handlerLeftMenu: () => {this.eventEmitter.emit('showParkingList');}
-    //     });
-    // }
-    // closeMapHandler() {
-    //     this.setState({
-    //         titleNavbar: 'Parkings',
-    //         titleLeftMenu: 'Menu',
-    //         handlerLeftMenu: this.toggleMenuState
-    //     });
-    // }
 
     onChangeMenuState(isOpen) {
         this.setState({isMenuOpen: isOpen});
@@ -129,7 +118,7 @@ class Router extends Component {
             title: 'Menu',
             handler: this.state.handlerLeftMenu.bind(this)
         };
-        // Render
+        // FIXME: Trick Android for notification
         if (this.state.displayParking) {
             return (
                 <NativeRouter onUpdate={this.onEnter}>
@@ -137,25 +126,14 @@ class Router extends Component {
                         <SideMenu menu={menu} isOpen={this.state.isMenuOpen} onChange={this.onChangeMenuState.bind(this)}>
                             <NavigationBar
                                 title={{title: this.state.titleNavbar}}
-                                leftButton={
-                                    <NavBarIconLeft onPress={this.state.handlerLeftMenu.bind(this)} />
-                                }
-                            />
-
+                                leftButton={<NavBarIconLeft onPress={this.state.handlerLeftMenu.bind(this)} />} />
                             <ParkingListView coordinate={this.state.payload} />
-
-                            <Route path="/login" component={LoginView} />
-                            <Route path="/logout" component={LogoutView} />
-                            <Route path="/subscription" component={SubscriptionView} />
-
-                            <PrivateRoute path="/camera" component={CameraView} />
-                            <PrivateRoute path="/parking"  component={ParkingListView} />
-                            <PrivateRoute path="/profile" component={ProfileView} />
                         </SideMenu>
                     </View>
                 </NativeRouter>
             );
         }
+        // Render
         return (
             <NativeRouter onUpdate={this.onEnter}>
                 <View style={styles.container}>
