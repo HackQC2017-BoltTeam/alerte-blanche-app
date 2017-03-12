@@ -12,10 +12,24 @@ import UserService from '../services/user_service';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#FFFFFF',
-        padding: 50
+        backgroundColor: '#40549F',
+        padding: 20
+    },
+    label: {
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    input: {
+        padding: 5,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        backgroundColor: '#FFFFFF'
+    },
+    button: {
+        color: '#FFFFFF',
+        fontSize: 28,
     }
 });
 
@@ -61,18 +75,22 @@ class LoginView extends Component {
         // Render
         return (
             <View style={styles.container}>
-                <Text>Email</Text>
+                <Text style={styles.label}>Email</Text>
                 <TextInput
-                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                    style={styles.input}
                     onChangeText={(text) => this.setState({email: text})}
                     value={this.state.email} />
-                <Text>Mot de passe</Text>
+                <Text style={styles.label}>Mot de passe</Text>
                 <TextInput
-                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                    style={styles.input}
                     onChangeText={(text) => this.setState({password: text})}
                     secureTextEntry={true}
                     value={this.state.password} />
-                <Button title="Valider" onPress={this.login.bind(this)} />
+                <Button
+                    color='#FFFFFF'
+                    style={styles.button}
+                    title="Valider"
+                    onPress={this.login.bind(this)} />
             </View>
         )
     }

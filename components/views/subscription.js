@@ -13,12 +13,24 @@ import { Url } from '../common/constants';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#40549F',
+        padding: 10
+    },
+    label: {
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+        fontSize: 16
     },
     input: {
+        padding: 5,
         height: 40,
         borderColor: 'gray',
-        borderWidth: 1
+        borderWidth: 1,
+        backgroundColor: '#FFFFFF'
+    },
+    button: {
+        color: '#FFFFFF',
+        fontSize: 28,
     }
 });
 
@@ -90,38 +102,38 @@ class FormSubscription extends Component {
         return (
             <TouchableWithoutFeedback onPress={ () => { DismissKeyboard() } }>
                 <View style={styles.container}>
-                    <Text>Email</Text>
+                    <Text style={styles.label}>Email</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={(text) => this.setState({email: text})}
                         value={this.state.email} />
-                    <Text>Firstname</Text>
+                    <Text style={styles.label}>Firstname</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={(text) => this.setState({firstname: text})}
                         value={this.state.firstname} />
-                    <Text>Lastname</Text>
+                    <Text style={styles.label}>Lastname</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={(text) => this.setState({lastname: text})}
                         value={this.state.lastname} />
-                    <Text>Mot de passe</Text>
+                    <Text style={styles.label}>Mot de passe</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={(text) => this.setState({password: text})}
                         secureTextEntry={true}
                         value={this.state.password} />
-                    <Text>Numero d&#39;immatriculation</Text>
+                    <Text style={styles.label}>Numero d&#39;immatriculation</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={(text) => this.setState({plate: text})}
                         value={this.state.plate} />
-                    <Text>Cellulaire</Text>
+                    <Text style={styles.label}>Cellulaire</Text>
                     <TextInput
                         style={styles.input}
                         onChangeText={(text) => this.setState({phone: text})}
                         value={this.state.phone} />
-                    <Button title="Valider" onPress={this.validateSubscription.bind(this)} />
+                    <Button style={styles.button} color="#FFFFFF" title="Valider" onPress={this.validateSubscription.bind(this)} />
                 </View>
             </TouchableWithoutFeedback>
         )

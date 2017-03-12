@@ -8,7 +8,7 @@ import { MapView } from 'react-native';
 // App imports
 import Menu from '../common/left_menu';
 import MapPageView from './map';
-import Constants from '../common/constants';
+import { Url } from '../common/constants';
 
 // Style
 const styles = StyleSheet.create({
@@ -63,7 +63,7 @@ class ParkingListView extends Component {
         // Listener
         // this.addListenerOn(this.props.eventEmitter, 'showParkingList', this.goBackFromMap);
         // Fetch list parkings
-        fetch(Constants.Url.parkings, {
+        fetch(Url.parkings, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -87,7 +87,7 @@ class ParkingListView extends Component {
     render() {
         var parkingsRows = this.state.parkings.map((parking) => {
             return (
-                <ParkingRow key={parking.id_sta} parking={parking} openMap={this.openMap.bind(this, parking) }/>
+                <ParkingRow key={parking.id_sta} parking={parking} openMap={this.openMap.bind(this, parking)} />
             );
         });
         if (this.state.currentParking) {

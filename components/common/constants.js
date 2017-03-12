@@ -8,7 +8,7 @@ var URL = {
 
     photo:      CONSTANTS.HOST_VM + '/platonix/photo',
 
-    parkings:   CONSTANTS.HOST_VM + '/parkings'
+    parkings:   CONSTANTS.HOST_VM + '/yeoulparking/parkings'
 };
 
 module.exports = {
