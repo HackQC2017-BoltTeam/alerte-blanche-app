@@ -74,12 +74,16 @@ class CameraView extends Component {
             {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
         );
     }
-    sendPlate() {
+    sendPlate(custom) {
         var user = UserService.getUser();
         var data = { plate_number: this.state.plate };
         if (this.state.coordinate) {
             data.longitude = this.state.coordinate.longitude;
             data.latitude = this.state.coordinate.latitude;
+        }
+        if (custom) {
+            data.longitude = '-73.574828';
+            data.latitude = '45.5253394';
         }
         fetch(Url.signal, {
             method: 'POST',
@@ -135,6 +139,9 @@ class CameraView extends Component {
             console.error(err)
         });
     }
+    bakeToPicture() {
+        this.setState({pictureTook: false});
+    }
 
     render() {
         return (
@@ -146,7 +153,7 @@ class CameraView extends Component {
                                 Merci pour votre bonne action.
                             </Text>
                             <Text style={styles.label}>
-                                Une notification a été envoyé au propriétaire du véhicule ayant la plaque suivante: {this.state.plate}
+                                Une notification a été envoyée au propriétaire du véhicule ayant la plaque suivante: {this.state.plate}
                             </Text>
                         </View> :
                         <View style={styles.containerResult}>
@@ -160,7 +167,9 @@ class CameraView extends Component {
                             <Text style={styles.label}>
                                 Vous êtes sur le point de notifier le propriétaire de ce véhicule.
                             </Text>
+                            <Button color="#FFFFFF" title="Ressayer" onPress={this.bakeToPicture.bind(this)} />
                             <Button color="#FFFFFF" title="Envoyer" onPress={this.sendPlate.bind(this)} />
+                            <Button color="#FFFFFF" title="Envoyer (custom)" onPress={this.sendPlate.bind(this, true)} />
                         </View>
                     :
                     <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill} captureTarget={Camera.constants.CaptureTarget.disk}>

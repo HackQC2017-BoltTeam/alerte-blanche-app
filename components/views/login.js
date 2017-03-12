@@ -40,7 +40,7 @@ class LoginView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: 'will@gmail.com',
+            email: 'william57m@gmail.com',
             password: 'password',
             redirectToHome: false
         };
