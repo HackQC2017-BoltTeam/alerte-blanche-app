@@ -107,8 +107,9 @@ class Router extends Component {
             case 'camera': title = 'Signaler'; break;
             case 'parking': title = 'Parking'; break;
             case 'profile': title = 'Profile'; break;
-            case 'login': title = 'Connection'; break;
-            case 'logout': title = 'Connection'; break;
+            case 'login': title = 'Connexion'; break;
+            case 'logout': title = 'Connexion'; break;
+            case 'subscription': title = 'Enregistrement'; break;
             default: title = 'Bienvenue';
         }
         this.setState({titleNavbar: title});
