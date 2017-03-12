@@ -5,8 +5,8 @@ import { Navigator, View, Text, StyleSheet, Platform } from 'react-native';
 import { NativeRouter, Route, Link, Redirect } from 'react-router-native'
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
-import EventEmitter from 'EventEmitter';
-import Subscribable from 'Subscribable';
+// import EventEmitter from 'EventEmitter';
+// import Subscribable from 'Subscribable';
 import store from 'react-native-simple-store';
 
 // App imports
@@ -62,7 +62,7 @@ class Router extends Component {
             titleLeftMenu: 'Menu',
             handlerLeftMenu: this.toggleMenuState.bind(this)
         };
-        this.eventEmitter = new EventEmitter();
+        // this.eventEmitter = new EventEmitter();
     }
     componentDidMount() {
         // this.addListenerOn(this.eventEmitter, 'openMap', this.openMapHandler.bind(this));
@@ -77,19 +77,19 @@ class Router extends Component {
     }
 
     // Map handler
-    openMapHandler() {
-        this.setState({
-            titleLeftMenu: 'Back',
-            handlerLeftMenu: () => {this.eventEmitter.emit('showParkingList');}
-        });
-    }
-    closeMapHandler() {
-        this.setState({
-            titleNavbar: 'Parkings',
-            titleLeftMenu: 'Menu',
-            handlerLeftMenu: this.toggleMenuState
-        });
-    }
+    // openMapHandler() {
+    //     this.setState({
+    //         titleLeftMenu: 'Back',
+    //         handlerLeftMenu: () => {this.eventEmitter.emit('showParkingList');}
+    //     });
+    // }
+    // closeMapHandler() {
+    //     this.setState({
+    //         titleNavbar: 'Parkings',
+    //         titleLeftMenu: 'Menu',
+    //         handlerLeftMenu: this.toggleMenuState
+    //     });
+    // }
 
     onChangeMenuState(isOpen) {
         this.setState({isMenuOpen: isOpen});
@@ -126,7 +126,7 @@ class Router extends Component {
         var me = this;
         class ParkingListViewWithEvent extends Component {
             render() {
-                return <ParkingListView eventEmitter={me.eventEmitter} />;
+                return <ParkingListView />;
             }
         }
         // Render
@@ -156,6 +156,6 @@ class Router extends Component {
         );
     }
 }
-Object.assign(Router.prototype, Subscribable.Mixin);
+// Object.assign(Router.prototype, Subscribable.Mixin);
 
 module.exports = Router;
