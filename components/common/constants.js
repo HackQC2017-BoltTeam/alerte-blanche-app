@@ -5,6 +5,7 @@ var CONSTANTS = {
 var URL = {
     login:      CONSTANTS.HOST_VM + '/api/login',
     register:   CONSTANTS.HOST_VM + '/api/users',
+    token:      CONSTANTS.HOST_VM + '/api/users/me/token',
 
     photo:      CONSTANTS.HOST_VM + '/platonix/photo',
 

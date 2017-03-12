@@ -1,11 +1,29 @@
+// Lib imports
 import PushNotification from 'react-native-push-notification';
+import { Url } from '../common/constants';
+
+// App imports
+import store from 'react-native-simple-store';
+
 
 PushNotification.configure({
 
     // (optional) Called when Token is generated (iOS and Android)
     onRegister: function(token) {
         console.log('TOKEN:', token);
-        // send_to_server(token.token);
+
+        store.get('user').then((user) => {
+            if (user) {
+                fetch(Url.token, {
+                    method: 'POST',
+                    headers: {
+                        'Cookies: ' + user.cookie,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({token: token})
+                });
+            }
+        });
     },
 
     // (required) Called when a remote or local notification is opened or received
