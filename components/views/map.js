@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
 
-import MapView from 'react-native-maps';
+import { MapView } from 'react-native';
+// import MapView from 'react-native-maps';
 
 // App imports
 import Menu from '../common/left_menu';

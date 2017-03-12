@@ -7,10 +7,11 @@ import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
 import EventEmitter from 'EventEmitter';
 import Subscribable from 'Subscribable';
-import PushNotificationService from './services/push_service';
+// import PushNotificationService from './services/push_service';
 
 // App imports
 import LeftMenu from './common/left_menu';
+import NavBarIconLeft from './common/icon_navbar';
 
 // Services
 import UserService from './services/user_service';
@@ -122,7 +123,12 @@ class Router extends Component {
             <NativeRouter onUpdate={this.onEnter}>
                 <View style={styles.container}>
                     <SideMenu menu={menu} isOpen={this.state.isMenuOpen} onChange={this.onChangeMenuState.bind(this)}>
-                        <NavigationBar title={{title: this.state.titleNavbar}} leftButton={leftButtonNavbar} />
+                        <NavigationBar
+                            title={{title: this.state.titleNavbar}}
+                            leftButton={
+                                <NavBarIconLeft onPress={this.state.handlerLeftMenu.bind(this)} />
+                            }
+                        />
 
                         <Route exact path="/" onEnter={this.onEnter} component={WelcomeView} />
 

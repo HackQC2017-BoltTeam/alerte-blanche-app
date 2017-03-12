@@ -1,6 +1,6 @@
 // Lib imports
 import React, { Component } from 'react';
-import { NativeModules, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import Camera from 'react-native-camera';
 
@@ -37,7 +37,25 @@ class CameraView extends Component {
             result: {}
         }
     }
+
+    sendPlate() {
+        // fetch(Url.photo, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json'
+        //     },
+        //     body: body
+        // }).then((response) => {
+        //     response.json().then((response) => {
+        //         this.setState({result: response});
+        //     })
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+    }
+
     sendPicture(urlImage) {
+        // Prepare data
         var photo = {
             uri: urlImage,
             type: 'image/jpeg',
@@ -45,6 +63,7 @@ class CameraView extends Component {
         };
         var body = new FormData();
         body.append('file', photo);
+        // Request
         fetch(Url.photo, {
             method: 'POST',
             headers: {
@@ -53,7 +72,14 @@ class CameraView extends Component {
             body: body
         }).then((response) => {
             response.json().then((response) => {
-                this.setState({result: response});
+                var plateNumber = ''
+                if (response && response.results && response.results.length) {
+                    plateNumber = response.results[0].candidates[0].plate
+                }
+                this.setState({
+                    result: response,
+                    plate: plateNumber
+                });
             })
         }).catch((error) => {
             console.log(error);
@@ -72,11 +98,22 @@ class CameraView extends Component {
         return (
             <View style={styles.container}>
                 {this.state.sent ?
-                    <Text>
-                        {JSON.stringify(this.state.result)}
-                    </Text>:
+                    <View>
+                        <Text>
+                            Est-ce correct ?
+                        </Text>
+                        <TextInput
+                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                            value={this.state.plate}
+                            onChangeText={(text) => this.setState({plate: text})} />
+                        <Button title="Envoyer" onPress={this.sendPlate.bind(this)} />
+                    </View> :
                     <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill} captureTarget={Camera.constants.CaptureTarget.disk}>
-                        <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]</Text>
+                        <TouchableOpacity
+                            style={styles.captureButton}
+                            onPress={this.takePicture.bind(this)}>
+                            <Image source={require('../resources/icon-camera.png')} />
+                        </TouchableOpacity>
                     </Camera>
                 }
             </View>

@@ -2,7 +2,11 @@ let userService = null;
 
 var singleton = {
     user: {
-        email: 'william57m@gmail.com'
+        // firstname: 'William',
+        // lastname: 'Mura',
+        // email: 'william57m@gmail.com',
+        // countReference: 5,
+        // plate: 'ABC-123'
     },
 
     getUser: function(user) {

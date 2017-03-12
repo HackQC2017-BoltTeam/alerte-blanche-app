@@ -41,7 +41,10 @@ class Menu extends Component {
                     </View> : null
                 }
                 {!UserService.isLogged() ?
-                    <Link to="/login"       onPress={this.goTo.bind(this, 'login')}><Text style={styles.button}>Login</Text></Link> : null
+                    <View>
+                        <Link to="/login"           onPress={this.goTo.bind(this, 'login')}><Text style={styles.button}>Login</Text></Link>
+                        <Link to="/subscription"    onPress={this.goTo.bind(this, 'subscription')}><Text style={styles.button}>Register</Text></Link>
+                    </View> : null
                 }
             </View>
         );

@@ -10,10 +10,13 @@ import UserService from '../services/user_service';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
+        padding: 20
     },
+    username: {
+        fontSize: 28,
+        fontWeight: 'bold'
+    }
 });
 
 class ProfileView extends Component {
@@ -21,8 +24,9 @@ class ProfileView extends Component {
         var user = UserService.getUser()
         return (
             <View style={styles.container}>
+                <Text style={styles.username}>{user.first_name} {user.last_name}</Text>
                 <Text>Email: {user.email}</Text>
-                <Text>Ma plaque: {user.plate}</Text>
+                <Text>Ma plaque: {user.plate_number}</Text>
                 <Text>Nombre de signalement: {user.countReference} (Gain de {user.countReference * 5}$)</Text>
             </View>
         )
