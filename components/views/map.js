@@ -1,6 +1,6 @@
 // Lib imports
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Platform } from 'react-native';
+import { StyleSheet, Text, View, Platform, Linking, Button } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
 import MapView from '../common/mapview'
@@ -73,6 +73,17 @@ class MapPageView extends Component {
         }
     }
 
+    getDirections() {
+        var lat1 = this.state.markers[0].latitude;
+        var lon1 = this.state.markers[0].longitude;
+        var lat2 = this.state.markers[1].latitude;
+        var lon2 = this.state.markers[1].longitude;
+        var url = 'http://maps.google.com/maps?saddr=' + lat1 + ',' + lon1;
+        url += '&daddr=' + lat2 + ',' + lon2
+        console.log(url);
+        Linking.openURL(url);
+    }
+
     render() {
         // Navigation Bar
         const leftButtonNavbar = {
@@ -110,6 +121,7 @@ class MapPageView extends Component {
                         </View>
                     }
                 </MapView>
+                <Button style={styles.button} title="Directions" onPress={this.getDirections.bind(this)} />
             </View>
         )
     }
