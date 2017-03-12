@@ -46,6 +46,7 @@ class Menu extends Component {
                         <Link to="/camera"  onPress={this.goTo.bind(this, 'camera')}><View style={styles.button}><Text style={styles.buttonText}><Image style={styles.iconLeftMenu} source={require('../resources/left_menu/ic_camera.png')} /> Signaler</Text></View></Link>
                         <Link to="/parking" onPress={this.goTo.bind(this, 'parking')}><View style={styles.button}><Text style={styles.buttonText}><Image style={styles.iconLeftMenu} source={require('../resources/left_menu/ic_car.png')} /> Stationnement</Text></View></Link>
                         <Link to="/profile" onPress={this.goTo.bind(this, 'profile')}><View style={styles.button}><Text style={styles.buttonText}><Image style={styles.iconLeftMenu} source={require('../resources/left_menu/ic_user.png')} /> Profil</Text></View></Link>
+                        <Link to="/stats"   onPress={this.goTo.bind(this, 'stats')}><View style={styles.button}><Text style={styles.buttonText}><Image style={styles.iconLeftMenu} source={require('../resources/left_menu/ic_map.png')} /> Stats</Text></View></Link>
                         <Link to="/logout"  onPress={this.goTo.bind(this, 'logout')}><View style={styles.button}><Text style={styles.buttonText}><Image style={styles.iconLeftMenu} source={require('../resources/left_menu/ic_signout.png')} /> Logout</Text></View></Link>
                     </View> : null
                 }

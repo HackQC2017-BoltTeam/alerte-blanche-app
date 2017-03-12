@@ -28,6 +28,8 @@ import SubscriptionView from './views/subscription';
 import ParkingListView from './views/parking_list';
 import MapView from './views/map';
 import ProfileView from './views/profile';
+import StatView from './views/webview';
+
 
 // Android specific
 if (Platform.OS === 'android') {
@@ -106,6 +108,7 @@ class Router extends Component {
             case 'login': title = 'Connexion'; break;
             case 'logout': title = 'Connexion'; break;
             case 'subscription': title = 'Enregistrement'; break;
+            case 'stats': title = 'Statistiques'; break;
             default: title = 'Bienvenue';
         }
         this.setState({titleNavbar: title});
@@ -153,6 +156,7 @@ class Router extends Component {
                         <Route path="/logout" component={LogoutView} />
                         <Route path="/subscription" component={SubscriptionView} />
 
+                        <PrivateRoute path="/stats" component={StatView} />
                         <PrivateRoute path="/camera" component={CameraView} />
                         <PrivateRoute path="/parking"  component={ParkingListView} />
                         <PrivateRoute path="/profile" component={ProfileView} />
