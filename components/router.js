@@ -125,7 +125,7 @@ class Router extends Component {
                     <View style={styles.container}>
                         <SideMenu menu={menu} isOpen={this.state.isMenuOpen} onChange={this.onChangeMenuState.bind(this)}>
                             <NavigationBar
-                                title={{title: this.state.titleNavbar}}
+                                title={{title: 'Parking'}}
                                 leftButton={<NavBarIconLeft onPress={this.state.handlerLeftMenu.bind(this)} />} />
                             <ParkingListView coordinate={this.state.payload} />
                         </SideMenu>

@@ -31,27 +31,37 @@ const styles = StyleSheet.create({
 class MapPageView extends Component {
     constructor(props) {
         super(props);
+        this.mapRef = null,
         this.state = {
-            annotations: [{
-                latitude: this.props.parking.latitude,
-                longitude: this.props.parking.longitude,
-                animateDrop: true,
-                title: this.props.parking.emplacement
-            }],
             region: {
                 latitude: this.props.parking.latitude,
                 longitude: this.props.parking.longitude,
+                latitudeDelta: 0.05,
+                longitudeDelta: 0.05,
             },
-            marker: {
+            markers: [{
                 latitude: this.props.parking.latitude,
                 longitude: this.props.parking.longitude,
-                latitudeDelta: 0.01,
-                longitudeDelta: 0.01,
                 title: this.props.parking.emplacement,
                 description: this.props.parking.emplacement,
-            },
+                identifier: 'parking',
+            }, {
+                latitude: this.props.coordinate.latitude,
+                longitude: this.props.coordinate.longitude,
+                title: 'my car',
+                description: 'move me',
+                image: require('../resources/pin.png'),
+                identifier: 'mycar',
+            }],
         }
     }
+
+    componentDidMount() {
+        animationTimeout = setTimeout(() => {
+            this.mapRef.fitToSuppliedMarkers(['parking', 'mycar'], true);
+        }, 2000);
+    }
+
     render() {
         // Navigation Bar
         const leftButtonNavbar = {
@@ -62,18 +72,28 @@ class MapPageView extends Component {
             <View style={styles.container}>
                 <NavigationBar title={{title: 'Map'}} leftButton={leftButtonNavbar} style={styles.navbar} />
                 <MapView
+                    ref={(ref) => { this.mapRef = ref }}
                     style={styles.map}
                     showsUserLocation={true}
-                    annotations={this.state.annotations}
-                    region={this.state.marker}
+                    region={this.state.region}
                     >
                     {Platform.OS === 'ios' ?
                         null :
+                        <View>
                         <MapView.Marker
-                            coordinate={this.state.marker}
-                            title={this.state.marker.title}
-                            description={this.state.marker.description}
+                            coordinate={this.state.markers[0]}
+                            title={this.state.markers[0].title}
+                            description={this.state.markers[0].description}
+                            identifier={this.state.markers[0].identifier}
                         />
+                        <MapView.Marker
+                            coordinate={this.state.markers[1]}
+                            title={this.state.markers[1].title}
+                            description={this.state.markers[1].description}
+                            image={this.state.markers[1].image}
+                            identifier={this.state.markers[1].identifier}
+                        />
+                        </View>
                     }
                 </MapView>
             </View>

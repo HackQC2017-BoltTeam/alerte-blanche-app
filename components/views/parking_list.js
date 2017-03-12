@@ -93,7 +93,7 @@ class ParkingListView extends Component {
         });
         if (this.state.currentParking) {
             return (
-                <MapPageView parking={this.state.currentParking} goBackFromMap={this.goBackFromMap.bind(this)} />
+                <MapPageView parking={this.state.currentParking} goBackFromMap={this.goBackFromMap.bind(this)} coordinate={this.props.coordinate} />
             );
         }
         return (
