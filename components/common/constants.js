@@ -5,6 +5,7 @@ var CONSTANTS = {
 var URL = {
     login:      CONSTANTS.HOST_VM + '/api/login',
     register:   CONSTANTS.HOST_VM + '/api/users',
+    profile:    CONSTANTS.HOST_VM + '/api/users/me',
     token:      CONSTANTS.HOST_VM + '/api/users/me/token',
     signal:     CONSTANTS.HOST_VM + '/api/signal',
 
