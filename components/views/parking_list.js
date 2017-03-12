@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import { MapView } from 'react-native';
-import Subscribable from 'Subscribable';
+// import Subscribable from 'Subscribable';
 
 // App imports
 import Menu from '../common/left_menu';
@@ -102,6 +102,6 @@ class ParkingListView extends Component {
         )
     }
 }
-Object.assign(ParkingListView.prototype, Subscribable.Mixin);
+// Object.assign(ParkingListView.prototype, Subscribable.Mixin);
 
 module.exports = ParkingListView;

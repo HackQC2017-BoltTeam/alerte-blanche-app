@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import { Redirect } from 'react-router-native'
+import { Url } from '../common/constants';
 
 // App imports
 import UserService from '../services/user_service';
@@ -23,25 +24,38 @@ class LoginView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: 'william57m@gmail.com',
+            email: 'will@gmail.com',
             password: 'password',
-            redirectToReferrer: false
+            redirectToHome: false
         };
     }
 
     login() {
-        var fakeUser = {
-            email: 'william57m@gmail.com',
-            plate: 'ABC 123',
-            countReference: 2
+        // Prepare data
+        var data = {
+            email: this.state.email
         }
-        UserService.setUser(fakeUser);
-        this.setState({ redirectToReferrer: true });
+        // Fetch list parkings
+        fetch(Url.login, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then((response) => {
+            response.json().then((response) => {
+                console.log(response);
+                UserService.setUser(response);
+                this.setState({ redirectToHome: true });
+            })
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     render() {
         // If logged, redirect to welcome page
-        if (this.state.redirectToReferrer) {
+        if (this.state.redirectToHome) {
             return ( <Redirect to="/" /> );
         }
         // Render
