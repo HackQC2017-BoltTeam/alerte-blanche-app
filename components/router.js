@@ -99,7 +99,7 @@ class Router extends Component {
         switch(page) {
             case 'welcome': title = 'Bienvenue'; break;
             case 'camera': title = 'Signaler'; break;
-            case 'parking': title = 'Parking'; break;
+            case 'parking': title = 'Stationnement'; break;
             case 'profile': title = 'Profile'; break;
             case 'login': title = 'Connexion'; break;
             case 'logout': title = 'Connexion'; break;
@@ -125,7 +125,7 @@ class Router extends Component {
                     <View style={styles.container}>
                         <SideMenu menu={menu} isOpen={this.state.isMenuOpen} onChange={this.onChangeMenuState.bind(this)}>
                             <NavigationBar
-                                title={{title: 'Parking'}}
+                                title={{title: 'Stationnement'}}
                                 leftButton={<NavBarIconLeft onPress={this.state.handlerLeftMenu.bind(this)} />} />
                             <ParkingListView coordinate={this.state.payload} />
                         </SideMenu>

@@ -31,8 +31,14 @@ const styles = StyleSheet.create({
 class MapPageView extends Component {
     constructor(props) {
         super(props);
-        this.mapRef = null,
+        this.mapRef = null;
         this.state = {
+            annotations: [{
+                latitude: this.props.parking.latitude,
+                longitude: this.props.parking.longitude,
+                animateDrop: true,
+                title: this.props.parking.emplacement
+            }],
             region: {
                 latitude: this.props.parking.latitude,
                 longitude: this.props.parking.longitude,
@@ -45,21 +51,26 @@ class MapPageView extends Component {
                 title: this.props.parking.emplacement,
                 description: this.props.parking.emplacement,
                 identifier: 'parking',
-            }, {
+            }],
+        }
+        if (this.props.coordinate) {
+            this.state.markers.push({
                 latitude: this.props.coordinate.latitude,
                 longitude: this.props.coordinate.longitude,
                 title: 'my car',
                 description: 'move me',
                 image: require('../resources/pin.png'),
                 identifier: 'mycar',
-            }],
+            });
         }
     }
 
     componentDidMount() {
-        animationTimeout = setTimeout(() => {
-            this.mapRef.fitToSuppliedMarkers(['parking', 'mycar'], true);
-        }, 2000);
+        if (this.props.coordinate) {
+            animationTimeout = setTimeout(() => {
+                this.mapRef.fitToSuppliedMarkers(['parking', 'mycar'], true);
+            }, 2000);
+        }
     }
 
     render() {
@@ -76,6 +87,7 @@ class MapPageView extends Component {
                     style={styles.map}
                     showsUserLocation={true}
                     region={this.state.region}
+                    annotations={this.state.annotations}
                     >
                     {Platform.OS === 'ios' ?
                         null :
