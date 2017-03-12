@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="armeabi-v7a,armeabi"
+    api-level="24"
+    build-mode="FULL"
+    density="xxhdpi"
+    format="10"
+    plugin-version="2.3.0"
+    timestamp="1489251200684"
+    token="5594450687693355492"
+    verifier="FULL_BUILD_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="1170" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="2321" />
+    <task
+        name="verifier"
+        duration="141" />
+
+    <artifact
+        location="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
+        type="RESOURCES" />
+
+</instant-run>
