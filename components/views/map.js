@@ -92,19 +92,21 @@ class MapPageView extends Component {
                     {Platform.OS === 'ios' ?
                         null :
                         <View>
-                        <MapView.Marker
-                            coordinate={this.state.markers[0]}
-                            title={this.state.markers[0].title}
-                            description={this.state.markers[0].description}
-                            identifier={this.state.markers[0].identifier}
-                        />
-                        <MapView.Marker
-                            coordinate={this.state.markers[1]}
-                            title={this.state.markers[1].title}
-                            description={this.state.markers[1].description}
-                            image={this.state.markers[1].image}
-                            identifier={this.state.markers[1].identifier}
-                        />
+                            <MapView.Marker
+                                coordinate={this.state.markers[0]}
+                                title={this.state.markers[0].title}
+                                description={this.state.markers[0].description}
+                                identifier={this.state.markers[0].identifier}
+                            />
+                            {this.state.markers[1] ?
+                                <MapView.Marker
+                                    coordinate={this.state.markers[1]}
+                                    title={this.state.markers[1].title}
+                                    description={this.state.markers[1].description}
+                                    image={this.state.markers[1].image}
+                                    identifier={this.state.markers[1].identifier}
+                                /> : null
+                            }
                         </View>
                     }
                 </MapView>
