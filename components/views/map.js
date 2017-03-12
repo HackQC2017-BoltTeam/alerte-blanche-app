@@ -121,7 +121,10 @@ class MapPageView extends Component {
                         </View>
                     }
                 </MapView>
-                <Button style={styles.button} title="Directions" onPress={this.getDirections.bind(this)} />
+                {this.state.markers[1] ?
+                    <Button style={styles.button} title="Directions" onPress={this.getDirections.bind(this)} /> :
+                    null
+                }
             </View>
         )
     }
