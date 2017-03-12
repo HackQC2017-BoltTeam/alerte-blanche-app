@@ -13,10 +13,11 @@ import UserService from '../services/user_service';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#40549F',
+        backgroundColor: '#40549F'
     },
     containerResult: {
-        padding: 20
+        padding: 20,
+        alignItems: 'center'
     },
     preview: {
         flex: 1,
@@ -35,12 +36,29 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16
     },
+    inputContainer: {
+        borderBottomColor: '#FFFFFF',
+        borderBottomWidth: 3,
+        borderStyle: 'solid',
+        height: 40,
+        width: 160,
+        marginBottom: 20
+    },
     input: {
         padding: 5,
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 1,
-        backgroundColor: '#FFFFFF'
+        height: 36,
+        color: '#FFFFFF',
+        fontSize: 36,
+        backgroundColor: '#40549F',
+        textAlign: 'center'
+    },
+    containerButton: {
+        alignItems: 'flex-end'
+    },
+    imgButton: {
+        width: 30,
+        height: 30,
+        marginBottom: 30
     },
     button: {
         color: '#FFFFFF',
@@ -161,18 +179,20 @@ class CameraView extends Component {
                             <Button color="#FFFFFF" title="Recommencer" onPress={this.bakeToPicture.bind(this)} />
                         </View> :
                         <View style={styles.containerResult}>
-                            <Text style={styles.label}>
-                                Est-ce correct ?
-                            </Text>
-                            <TextInput
-                                style={styles.input}
-                                value={this.state.plate}
-                                onChangeText={(text) => this.setState({plate: text})} />
-                            <Text style={styles.label}>
-                                Vous êtes sur le point de notifier le propriétaire de ce véhicule.
-                            </Text>
-                            <Button color="#FFFFFF" title="Ressayer" onPress={this.bakeToPicture.bind(this)} />
-                            <Button color="#FFFFFF" title="Envoyer" onPress={this.sendPlate.bind(this, false)} />
+                            <View style={styles.inputContainer}>
+                                <TextInput
+                                    style={styles.input}
+                                    value={this.state.plate}
+                                    onChangeText={(text) => this.setState({plate: text})} />
+                            </View>
+                            <View style={styles.containerButton}>
+                                <TouchableOpacity onPress={this.bakeToPicture.bind(this)}>
+                                    <Image style={styles.imgButton} source={require('../resources/left_menu/icon_refresh.png')} />
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={this.sendPlate.bind(this, false)}>
+                                    <Image style={styles.imgButton} source={require('../resources/left_menu/icon_send.png')} />
+                                </TouchableOpacity>
+                            </View>
                             <Button color="#FFFFFF" title="Envoyer (custom)" onPress={this.sendPlate.bind(this, true)} />
                         </View>
                     :
