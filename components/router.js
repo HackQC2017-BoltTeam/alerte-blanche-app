@@ -1,14 +1,13 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { Navigator, View, Text, StyleSheet } from 'react-native';
+import { Navigator, View, Text, StyleSheet, Platform } from 'react-native';
 import { NativeRouter, Route, Link, Redirect } from 'react-router-native'
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
 import EventEmitter from 'EventEmitter';
 import Subscribable from 'Subscribable';
 import store from 'react-native-simple-store';
-// import PushNotificationService from './services/push_service';
 
 // App imports
 import LeftMenu from './common/left_menu';
@@ -26,6 +25,10 @@ import SubscriptionView from './views/subscription';
 import ParkingListView from './views/parking_list';
 import MapView from './views/map';
 import ProfileView from './views/profile';
+
+if (Platform.OS === 'android') {
+    require('./services/push_service')
+}
 
 // Style
 const styles = StyleSheet.create({
