@@ -6,6 +6,10 @@ import { Url } from '../common/constants';
 import store from 'react-native-simple-store';
 
 
+var objs = {
+
+}
+
 PushNotification.configure({
 
     // (optional) Called when Token is generated (iOS and Android)
@@ -32,13 +36,14 @@ PushNotification.configure({
 
     // (required) Called when a remote or local notification is opened or received
     onNotification: function(notification) {
-        console.log('NOTIFICATION:', notification);
+        // console.log('NOTIFICATION:', notification);
 
         if ('google.message_id' in notification) {
             PushNotification.localNotification({
                 title: notification.title,
                 message: notification.message,
                 action: notification.action,
+                payload: notification.payload,
                 largeIcon: 'ic_launcher',
                 smallIcon: 'ic_notification',
                 playSound: true,
@@ -49,7 +54,10 @@ PushNotification.configure({
             });
         } else if (notification.foreground === false && notification.userInteraction === true) {
             if (notification.action === 'towing_alert') {
-                console.log(this);
+                if (notification.payload) {
+                    var payload = JSON.parse(notification.payload);
+                    objs.emitter.emit('pushNewView', payload);
+                }
             }
         }
 
@@ -70,4 +78,7 @@ PushNotification.configure({
     requestPermissions: true,
 });
 
-module.exports = PushNotification;
+module.exports = {
+    PushNotification: PushNotification,
+    setEmitter: function(emitter) { objs.emitter=emitter; }
+};

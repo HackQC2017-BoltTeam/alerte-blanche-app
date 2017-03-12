@@ -5,8 +5,8 @@ import { Navigator, View, Text, StyleSheet, Platform } from 'react-native';
 import { NativeRouter, Route, Link, Redirect } from 'react-router-native'
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
-// import EventEmitter from 'EventEmitter';
-// import Subscribable from 'Subscribable';
+import EventEmitter from 'EventEmitter';
+import Subscribable from 'Subscribable';
 import store from 'react-native-simple-store';
 
 // App imports
@@ -27,7 +27,8 @@ import MapView from './views/map';
 import ProfileView from './views/profile';
 
 if (Platform.OS === 'android') {
-    require('./services/push_service')
+    var PushService = require('./services/push_service').PushNotification;
+    var setEmitter = require('./services/push_service').setEmitter;
 }
 
 // Style
@@ -60,12 +61,16 @@ class Router extends Component {
             isMenuOpen: false,
             titleNavbar: 'Bienvenue',
             titleLeftMenu: 'Menu',
-            handlerLeftMenu: this.toggleMenuState.bind(this)
+            handlerLeftMenu: this.toggleMenuState.bind(this),
+            displayParking: false
         };
-        // this.eventEmitter = new EventEmitter();
+        this.eventEmitter = new EventEmitter();
+        setEmitter(this.eventEmitter);
     }
     componentDidMount() {
-        // this.addListenerOn(this.eventEmitter, 'openMap', this.openMapHandler.bind(this));
+        this.addListenerOn(this.eventEmitter, 'pushNewView', (result) => {
+            this.setState({displayParking: true, payload: result});
+        });
         // this.addListenerOn(this.eventEmitter, 'closeMap', this.closeMapHandler.bind(this));
 
         // Get user from local storage
@@ -124,13 +129,33 @@ class Router extends Component {
             title: 'Menu',
             handler: this.state.handlerLeftMenu.bind(this)
         };
-        var me = this;
-        class ParkingListViewWithEvent extends Component {
-            render() {
-                return <ParkingListView />;
-            }
-        }
         // Render
+        if (this.state.displayParking) {
+            return (
+                <NativeRouter onUpdate={this.onEnter}>
+                    <View style={styles.container}>
+                        <SideMenu menu={menu} isOpen={this.state.isMenuOpen} onChange={this.onChangeMenuState.bind(this)}>
+                            <NavigationBar
+                                title={{title: this.state.titleNavbar}}
+                                leftButton={
+                                    <NavBarIconLeft onPress={this.state.handlerLeftMenu.bind(this)} />
+                                }
+                            />
+
+                            <ParkingListView coordinate={this.state.payload} />
+
+                            <Route path="/login" component={LoginView} />
+                            <Route path="/logout" component={LogoutView} />
+                            <Route path="/subscription" component={SubscriptionView} />
+
+                            <PrivateRoute path="/camera" component={CameraView} />
+                            <PrivateRoute path="/parking"  component={ParkingListView} />
+                            <PrivateRoute path="/profile" component={ProfileView} />
+                        </SideMenu>
+                    </View>
+                </NativeRouter>
+            );
+        }
         return (
             <NativeRouter onUpdate={this.onEnter}>
                 <View style={styles.container}>
@@ -149,7 +174,7 @@ class Router extends Component {
                         <Route path="/subscription" component={SubscriptionView} />
 
                         <PrivateRoute path="/camera" component={CameraView} />
-                        <PrivateRoute path="/parking"  component={ParkingListViewWithEvent} />
+                        <PrivateRoute path="/parking"  component={ParkingListView} />
                         <PrivateRoute path="/profile" component={ProfileView} />
                     </SideMenu>
                 </View>
@@ -157,6 +182,6 @@ class Router extends Component {
         );
     }
 }
-// Object.assign(Router.prototype, Subscribable.Mixin);
+Object.assign(Router.prototype, Subscribable.Mixin);
 
 module.exports = Router;

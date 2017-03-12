@@ -63,7 +63,11 @@ class ParkingListView extends Component {
         // Listener
         // this.addListenerOn(this.props.eventEmitter, 'showParkingList', this.goBackFromMap);
         // Fetch list parkings
-        fetch(Url.parkings, {
+        var url = Url.parkings
+        if (this.props.coordinate) {
+            url += '?longitude=' + this.props.coordinate.longitude.toString() + '&latitude=' + this.props.coordinate.latitude.toString();
+        }
+        fetch(url, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "event-emitter": "^0.3.4",
     "react": "15.4.2",
     "react-native": "0.42.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
@@ -15,7 +16,8 @@
     "react-native-push-notification": "^2.2.1",
     "react-native-side-menu": "^0.20.1",
     "react-native-simple-store": "^1.1.0",
-    "react-router-native": "^4.0.0"
+    "react-router-native": "^4.0.0",
+    "subscribable": "^0.4.0"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
