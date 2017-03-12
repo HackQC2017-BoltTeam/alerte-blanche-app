@@ -33,17 +33,14 @@ class MapPageView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            annotations: [{
+            annotations: {
                 latitude: this.props.parking.latitude,
                 longitude: this.props.parking.longitude,
                 animateDrop: true,
-                title: this.props.parking.emplacement
-            }],
-            region: {
-                latitude: this.props.parking.latitude,
-                longitude: this.props.parking.longitude,
-                latitudeDelta: 0.0922,
-                longitudeDelta: 0.0421
+                title: this.props.parking.emplacement,
+                description: this.props.parking.emplacement,
+                latitudeDelta: 0.01,
+                longitudeDelta: 0.01
             }
         }
     }
@@ -59,8 +56,15 @@ class MapPageView extends Component {
                 <MapView
                     style={styles.map}
                     showsUserLocation={true}
-                    annotations={this.state.annotations}
-                    region={this.state.region} />
+                    region={this.state.annotations}
+                    >
+                    <MapView.Marker
+                        coordinate={this.state.annotations}
+                        title={this.state.annotations.title}
+                        description={this.state.annotations.description}
+                    />
+                </MapView>
+
             </View>
         )
     }
