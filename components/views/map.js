@@ -55,8 +55,8 @@ class MapPageView extends Component {
         }
         if (this.props.coordinate) {
             this.state.markers.push({
-                latitude: this.props.coordinate.latitude,
-                longitude: this.props.coordinate.longitude,
+                latitude: parseFloat(this.props.coordinate.latitude),
+                longitude: parseFloat(this.props.coordinate.longitude),
                 title: 'my car',
                 description: 'move me',
                 image: require('../resources/pin.png'),
