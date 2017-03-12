@@ -54,13 +54,33 @@ class CameraView extends Component {
         this.state = {
             pictureTook: false,
             sent: false,
-            result: {}
+            result: {},
+            coordinate: {}
         }
     }
-
+    componentDidMount() {
+        // Get current position
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                var data = {
+                    longitude: position.coords.longitude,
+                    latitude: position.coords.latitude
+                }
+                this.setState({coordinate: data});
+            },
+            (error) => {
+                alert(error.message)
+            },
+            {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+        );
+    }
     sendPlate() {
         var user = UserService.getUser();
-        console.log(this.state.plate);
+        var data = { plate_number: this.state.plate };
+        if (this.state.coordinate) {
+            data.longitude = this.state.coordinate.longitude;
+            data.latitude = this.state.coordinate.latitude;
+        }
         fetch(Url.signal, {
             method: 'POST',
             headers: {
@@ -68,9 +88,8 @@ class CameraView extends Component {
                 'Content-Type': 'application/json',
                 'Cookies': user.cookie,
             },
-            body: JSON.stringify({plate_number: this.state.plate})
+            body: JSON.stringify(data)
         }).then((response) => {
-            console.log(response);
             this.setState({sent: true});
         }).catch((error) => {
             console.log(error);
