@@ -70,7 +70,9 @@ class Router extends Component {
 
         // Get user from local storage
         store.get('user').then((user) => {
-            UserService.setUser(user);
+            if (user) {
+                UserService.setUser(user);
+            }
         })
     }
 
