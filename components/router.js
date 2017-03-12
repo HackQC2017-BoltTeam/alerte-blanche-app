@@ -1,3 +1,5 @@
+global.___DEV___ = false
+
 'use strict';
 
 // Lib imports

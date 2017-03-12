@@ -140,7 +140,7 @@ class CameraView extends Component {
         });
     }
     bakeToPicture() {
-        this.setState({pictureTook: false});
+        this.setState({pictureTook: false, sent: false});
     }
 
     render() {
@@ -155,6 +155,7 @@ class CameraView extends Component {
                             <Text style={styles.label}>
                                 Une notification a été envoyée au propriétaire du véhicule ayant la plaque suivante: {this.state.plate}
                             </Text>
+                            <Button color="#FFFFFF" title="Recommencer" onPress={this.bakeToPicture.bind(this)} />
                         </View> :
                         <View style={styles.containerResult}>
                             <Text style={styles.label}>
@@ -168,7 +169,7 @@ class CameraView extends Component {
                                 Vous êtes sur le point de notifier le propriétaire de ce véhicule.
                             </Text>
                             <Button color="#FFFFFF" title="Ressayer" onPress={this.bakeToPicture.bind(this)} />
-                            <Button color="#FFFFFF" title="Envoyer" onPress={this.sendPlate.bind(this)} />
+                            <Button color="#FFFFFF" title="Envoyer" onPress={this.sendPlate.bind(this, false)} />
                             <Button color="#FFFFFF" title="Envoyer (custom)" onPress={this.sendPlate.bind(this, true)} />
                         </View>
                     :
