@@ -86,11 +86,11 @@ class FormSubscription extends Component {
             // password: '',
             // plate: '',
             // phone: ''
-            email: 'will1@gmail.com',
-            firstname: 'Will',
+            email: 'william@gmail.com',
+            firstname: 'William',
             lastname: 'Mura',
             password: 'qwerty',
-            plate: 'ABC-123',
+            plate: 'AWE921',
             phone: '111-111-1111'
         };
     }
