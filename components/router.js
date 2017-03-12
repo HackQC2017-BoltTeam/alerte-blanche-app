@@ -7,7 +7,7 @@ import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
 import EventEmitter from 'EventEmitter';
 import Subscribable from 'Subscribable';
-import PushNotificationService from './services/push_service';
+// import PushNotificationService from './services/push_service';
 
 // App imports
 import LeftMenu from './common/left_menu';
