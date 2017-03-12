@@ -1,16 +1,9 @@
 // Lib imports
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Platform } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
-
-var MapView;
-
-if (Platform.OS === 'ios') {
-    MapView = require('react-native').MapView;
-} else {
-    MapView = require('react-native-maps').MapView;
-}
+import MapView from '../common/mapview'
 
 // App imports
 import Menu from '../common/left_menu';
