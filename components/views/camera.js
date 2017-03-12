@@ -12,8 +12,10 @@ import { Url } from '../common/constants';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#40549F',
+    },
+    containerResult: {
+        padding: 20
     },
     preview: {
         flex: 1,
@@ -26,6 +28,22 @@ const styles = StyleSheet.create({
         color: '#000',
         padding: 10,
         margin: 40
+    },
+    label: {
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+        fontSize: 16
+    },
+    input: {
+        padding: 5,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        backgroundColor: '#FFFFFF'
+    },
+    button: {
+        color: '#FFFFFF',
+        fontSize: 28,
     }
 });
 
@@ -33,12 +51,14 @@ class CameraView extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            pictureTook: false,
             sent: false,
             result: {}
         }
     }
 
     sendPlate() {
+        this.setState({sent: true});
         // fetch(Url.photo, {
         //     method: 'POST',
         //     headers: {
@@ -88,7 +108,7 @@ class CameraView extends Component {
     takePicture() {
         this.refs.camera.capture().then((data) => {
             this.sendPicture(data.path);
-            this.setState({sent: true});
+            this.setState({pictureTook: true});
         }).catch((err) => {
             console.error(err)
         });
@@ -97,17 +117,30 @@ class CameraView extends Component {
     render() {
         return (
             <View style={styles.container}>
-                {this.state.sent ?
-                    <View>
-                        <Text>
-                            Est-ce correct ?
-                        </Text>
-                        <TextInput
-                            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                            value={this.state.plate}
-                            onChangeText={(text) => this.setState({plate: text})} />
-                        <Button title="Envoyer" onPress={this.sendPlate.bind(this)} />
-                    </View> :
+                {this.state.pictureTook ?
+                    this.state.sent ?
+                        <View style={styles.containerResult}>
+                            <Text style={styles.label}>
+                                Merci pour votre bonne action.
+                            </Text>
+                            <Text style={styles.label}>
+                                Une notification a été envoyé au propriétaire du véhicule ayant la plaque suivante: {this.state.plate}
+                            </Text>
+                        </View> :
+                        <View style={styles.containerResult}>
+                            <Text style={styles.label}>
+                                Est-ce correct ?
+                            </Text>
+                            <TextInput
+                                style={styles.input}
+                                value={this.state.plate}
+                                onChangeText={(text) => this.setState({plate: text})} />
+                            <Text style={styles.label}>
+                                Vous êtes sur le point de notifier le propriétaire de ce véhicule.
+                            </Text>
+                            <Button color="#FFFFFF" title="Envoyer" onPress={this.sendPlate.bind(this)} />
+                        </View>
+                    :
                     <Camera ref='camera' style={styles.preview} aspect={Camera.constants.Aspect.fill} captureTarget={Camera.constants.CaptureTarget.disk}>
                         <TouchableOpacity
                             style={styles.captureButton}

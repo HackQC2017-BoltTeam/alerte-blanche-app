@@ -7,6 +7,7 @@ import SideMenu from 'react-native-side-menu';
 import NavigationBar from 'react-native-navbar';
 import EventEmitter from 'EventEmitter';
 import Subscribable from 'Subscribable';
+import store from 'react-native-simple-store';
 // import PushNotificationService from './services/push_service';
 
 // App imports
@@ -63,6 +64,11 @@ class Router extends Component {
     componentDidMount() {
         // this.addListenerOn(this.eventEmitter, 'openMap', this.openMapHandler.bind(this));
         // this.addListenerOn(this.eventEmitter, 'closeMap', this.closeMapHandler.bind(this));
+
+        // Get user from local storage
+        store.get('user').then((user) => {
+            UserService.setUser(user);
+        })
     }
 
     // Map handler

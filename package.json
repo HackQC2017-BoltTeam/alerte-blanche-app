@@ -15,6 +15,7 @@
     "react-native-navbar": "^1.6.3",
     "react-native-push-notification": "^2.2.1",
     "react-native-side-menu": "^0.20.1",
+    "react-native-simple-store": "^1.1.0",
     "react-router-native": "^4.0.0"
   },
   "devDependencies": {
