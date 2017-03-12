@@ -15,12 +15,16 @@ PushNotification.configure({
         store.get('user').then((user) => {
             if (user) {
                 fetch(Url.token, {
-                    method: 'POST',
+                    method: 'PUT',
                     headers: {
-                        'Cookies: ' + user.cookie,
+                        'Cookies': user.cookie,
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({token: token})
+                    body: JSON.stringify({'token': token.token})
+                }).then((response) => {
+                    console.log(response);
+                }).catch((error) => {
+                    console.log(error);
                 });
             }
         });
