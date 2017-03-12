@@ -39,6 +39,8 @@ PushNotification.configure({
                 title: notification.title,
                 message: notification.message,
                 action: notification.action,
+                largeIcon: 'ic_launcher',
+                smallIcon: 'ic_notification',
                 playSound: true,
                 soundName: 'default',
                 number: '10',
