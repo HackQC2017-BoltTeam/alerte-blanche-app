@@ -69,7 +69,7 @@ class CameraView extends Component {
                 this.setState({coordinate: data});
             },
             (error) => {
-                alert(error.message)
+                console.log(error.message)
             },
             {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
         );
