@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="98786c1770b531b9194fb6448b2a2692c64074b6">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-0.11.0_0dbe172fc6697f92b9ca68f4ab317f22d98089ea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.8.0_e7d55bbb9449e38dd543483f300f186707189651.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_11cc9e1a58c8bf4995a1f4e02a92ab41467909c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_7346923124bdeabd6e4b7a97b0b3aca2f569ddb3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2b8a01ad9da5d26d0067894c22e87597bca2c500">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-0.11.0_9623117a7b7bcd2389209600f6d8db9f165369e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_eef209562f80e4beb3141e663a565262246230ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-23.4.0_29db9fe653a43d4bb02c8f351dd75f2c7f6dfafd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.8.0_65bec056f4f59b566b8ebd6ad6355f7bd4a09fd3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/MobileApp/react-native-push-notification/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c9b6a0e47111c51a6c8f8b30e5cb323c03897525">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/MobileApp-react-native-push-notification-unspecified_09f50ae5562e10de5063de2e370b5bfc6df32fbf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_48d0b67ebc2073fc06e60a5400cd63099372a176.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d31aadf33187c37a7cd63dc1b769f8c6e33f78c3">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-0.11.0_6e2764fc6ce0667cd22d4bb9ff76e036935136dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/me.leolin/ShortcutBadger/1.1.8/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="531c33d3697000a05e9493a2d0f09ba41fa114d3">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/me.leolin-ShortcutBadger-1.1.8_0ccc2b229b7fca8ccc088f74a70a87d07ef40a39.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/core-3.2.1_d3e8add54d7198ff7bfcd7c4ef18506fe260a749.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_d5f81eef5ff43e80e64cd7c7174a9958f90159b4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-23.4.0_b6532c98b27ad5b93b87613d0430e264b38c79a1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_7346923124bdeabd6e4b7a97b0b3aca2f569ddb3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_761536a66ee847a3bc44eca14593fd6e72b8fd7e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="1137942adeb03984c1311b662363dd38fc238fd3">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-0.11.0_c386245cb85f90bb25ad75c325f25ce69dc6fc26.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f162442a19fff13995fbd51ba414d9ee05579080">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_48d0b67ebc2073fc06e60a5400cd63099372a176.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_9340ccb4db11fe3c86cc0d3f9669a35a7a32893f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_b4a34d5f493145d753f4e10d4bbced0696c4f799.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.4.0_7bfe28f1c5b5b5a66e4f95fe184a552ba5cbcb50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_58c78d7bfe84cea4f1f2387ffce07023991f3598.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_7566528a3666b7cf34fa16c733b2d9d9330284e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-23.4.0_f9af85b87cc8a82b76860707c537a0044351ad37.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_b4a34d5f493145d753f4e10d4bbced0696c4f799.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/library-2.4.0_63a09a120f75d13c8e6ec60ed1ae729fa583e4b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/MobileApp/react-native-camera/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8248dc8240f51ffe0bbb5bd38af9523e337252a9">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/MobileApp-react-native-camera-unspecified_1184dccf72b0fe2abc09b99b9f6ca3297130c6e6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_eef209562f80e4beb3141e663a565262246230ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_70c0e079e2a76de6ea874488264d0a77e404293e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gcm/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9dae58326f6f6a515022468cce56dd04ec3b9fdb">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-gcm-9.8.0_8182bb6880334a5841bc9a96833d783dd6ae14d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-iid/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-iid-9.8.0_fe6bef3ec11e360f3d1e8cdb8c60ae7bb07a91ab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_e7a4b0ed97ef1571d1c24a5036a6aa0970efc324.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ca63c521b5745ae9a09629d7ca67ff6bc2a967fe">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-0.11.0_cc2a1ca7967453948f7b3cf608f4dc08654e8e70.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/0.11.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3341b66c54367e777a0647e2db96c045329bfeab">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-0.11.0_53b45f0be0ba7f208adac9e3468aba97c1c7f193.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_9340ccb4db11fe3c86cc0d3f9669a35a7a32893f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/MobileApp/react-native-maps/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="40becebef8197d1b2f257be1170ea0b78e45f053">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/MobileApp-react-native-maps-unspecified_2a38af5926bf37bd642f32ee0f6670562b5d294f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.drewnoakes/metadata-extractor/2.9.1/53fdf22be10c9d426ec63431c7342895bc642261/metadata-extractor-2.9.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="53fdf22be10c9d426ec63431c7342895bc642261">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/metadata-extractor-2.9.1_a6f3a715c45bb69a49a78853159914d28a395d6f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.8.0_dd7cc8397237d44a204193a56fa355ca9fe534bb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.adobe.xmp/xmpcore/5.1.2/55615fa2582424e38705487d1d3969af8554f637/xmpcore-5.1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="55615fa2582424e38705487d1d3969af8554f637">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/xmpcore-5.1.2_5cbe6a7014bc276200811a03384235717cbb2273.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_7566528a3666b7cf34fa16c733b2d9d9330284e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.8.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.8.0_0806c31e95ea750d24eb47972c0933044808b9be.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_d5f81eef5ff43e80e64cd7c7174a9958f90159b4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.42.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="962b06c207e808c0557ffd6163ac584025a96021">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.42.0_0a253ce83cceea908c36d6b55bcec916d53e1a9d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/library-2.4.0_63a09a120f75d13c8e6ec60ed1ae729fa583e4b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_11cc9e1a58c8bf4995a1f4e02a92ab41467909c5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_58c78d7bfe84cea4f1f2387ffce07023991f3598.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.42.0/jars/libs/infer-annotations-1.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dcac634e137395f79693ec760f081a86eb2bd84e">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/infer-annotations-1.5_f83160d1d15d0c78b3638eca2bda9c04160fd299.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/frank/code/hackqc2017/MobileApp/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_4df4c6e2b1fff336dd802e01fe9a05d7d6a7f4dd.jar" />
+    </item>
+
+</items>
