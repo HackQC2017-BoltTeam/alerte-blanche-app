@@ -32,7 +32,7 @@ class ProfileView extends Component {
             <View style={styles.container}>
                 <Text style={styles.username}>{user.first_name} {user.last_name}</Text>
                 <Text style={styles.label}>Email: {user.email}</Text>
-                <Text style={styles.label}>Ma plaque: {user.plate_number}</Text>
+                <Text style={styles.label}>Ma plaque: {user.plates[0].number}</Text>
                 <Text style={styles.label}>Nombre de signalement: {user.countReference}</Text>
                 <Text style={styles.label}>Gain: {user.countReference * 5}$</Text>
             </View>

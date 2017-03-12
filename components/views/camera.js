@@ -7,6 +7,7 @@ import Camera from 'react-native-camera';
 // App imports
 import Menu from '../common/left_menu';
 import { Url } from '../common/constants';
+import UserService from '../services/user_service';
 
 // Style
 const styles = StyleSheet.create({
@@ -58,20 +59,22 @@ class CameraView extends Component {
     }
 
     sendPlate() {
-        this.setState({sent: true});
-        // fetch(Url.photo, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json'
-        //     },
-        //     body: body
-        // }).then((response) => {
-        //     response.json().then((response) => {
-        //         this.setState({result: response});
-        //     })
-        // }).catch((error) => {
-        //     console.log(error);
-        // });
+        var user = UserService.getUser();
+        console.log(this.state.plate);
+        fetch(Url.signal, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Cookies': user.cookie,
+            },
+            body: JSON.stringify({plate_number: this.state.plate})
+        }).then((response) => {
+            console.log(response);
+            this.setState({sent: true});
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
     sendPicture(urlImage) {

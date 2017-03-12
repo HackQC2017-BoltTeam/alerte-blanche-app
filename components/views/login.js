@@ -60,6 +60,7 @@ class LoginView extends Component {
             var cookie = response.headers.map['set-cookie'][0];
             response.json().then((response) => {
                 response.cookie = cookie;
+                console.log(response);
                 UserService.setUser(response);
                 this.setState({ redirectToHome: true });
             })

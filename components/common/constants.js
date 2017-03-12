@@ -6,6 +6,7 @@ var URL = {
     login:      CONSTANTS.HOST_VM + '/api/login',
     register:   CONSTANTS.HOST_VM + '/api/users',
     token:      CONSTANTS.HOST_VM + '/api/users/me/token',
+    signal:     CONSTANTS.HOST_VM + '/api/signal',
 
     photo:      CONSTANTS.HOST_VM + '/platonix/photo',
 
