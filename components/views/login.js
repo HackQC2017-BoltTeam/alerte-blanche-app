@@ -25,11 +25,13 @@ const styles = StyleSheet.create({
         height: 40,
         borderColor: 'gray',
         borderWidth: 1,
-        backgroundColor: '#FFFFFF'
+        backgroundColor: '#FFFFFF',
+        marginBottom: 10
     },
     button: {
         color: '#FFFFFF',
         fontSize: 28,
+        marginTop: 10
     }
 });
 

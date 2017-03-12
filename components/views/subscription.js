@@ -1,6 +1,6 @@
 // Lib imports
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, TouchableWithoutFeedback } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, TouchableWithoutFeedback, ScrollView } from 'react-native';
 import SideMenu from 'react-native-side-menu';
 import Router, { Link } from 'react-router-native'
 import DismissKeyboard from 'dismissKeyboard';
@@ -21,16 +21,23 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 16
     },
+    description: {
+        fontSize: 16,
+        color: '#FFFFFF'
+    },
     input: {
         padding: 5,
-        height: 40,
+        height: 35,
         borderColor: 'gray',
         borderWidth: 1,
-        backgroundColor: '#FFFFFF'
+        backgroundColor: '#FFFFFF',
+        marginBottom: 5
     },
     button: {
         color: '#FFFFFF',
         fontSize: 28,
+        marginTop: 15,
+        alignItems: 'center'
     }
 });
 
@@ -101,7 +108,7 @@ class FormSubscription extends Component {
         var menu = <Menu navigator={this.props.navigator} />;
         return (
             <TouchableWithoutFeedback onPress={ () => { DismissKeyboard() } }>
-                <View style={styles.container}>
+                <ScrollView style={styles.container}>
                     <Text style={styles.label}>Email</Text>
                     <TextInput
                         style={styles.input}
@@ -134,7 +141,7 @@ class FormSubscription extends Component {
                         onChangeText={(text) => this.setState({phone: text})}
                         value={this.state.phone} />
                     <Button style={styles.button} color="#FFFFFF" title="Valider" onPress={this.validateSubscription.bind(this)} />
-                </View>
+                </ScrollView>
             </TouchableWithoutFeedback>
         )
     }
@@ -144,8 +151,10 @@ class ResultSubscription extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Your account has been created</Text>
-                <Link to="/login"><Text>Log me</Text></Link>
+                <Text style={styles.description}>Your account has been created</Text>
+                <Link to="/login">
+                    <Text style={styles.button} color="#FFFFFF">Log Me</Text>
+                </Link>
             </View>
         )
     }
