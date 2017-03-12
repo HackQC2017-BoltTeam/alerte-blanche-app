@@ -45,6 +45,9 @@ const styles = StyleSheet.create({
     button: {
         color: '#FFFFFF',
         fontSize: 28,
+    },
+    captureButton: {
+        paddingBottom: 15
     }
 });
 
