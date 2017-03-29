@@ -11,9 +11,9 @@ var URL = {
     token:      CONSTANTS.HOST_API + '/users/me/token',
     signal:     CONSTANTS.HOST_API + '/signal',
 
-    photo:      CONSTANTS.HOST_PLATONIX + '/platonix/photo',
+    photo:      CONSTANTS.HOST_PLATONIX + '/photo',
 
-    parkings:   CONSTANTS.HOST_YEOUL + '/yeoulparking/parkings'
+    parkings:   CONSTANTS.HOST_YEOUL + '/parkings'
 };
 
 module.exports = {
