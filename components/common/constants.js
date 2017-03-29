@@ -5,11 +5,11 @@ var CONSTANTS = {
 };
 
 var URL = {
-    login:      CONSTANTS.HOST_API + '/api/login',
-    register:   CONSTANTS.HOST_API + '/api/users',
-    profile:    CONSTANTS.HOST_API + '/api/users/me',
-    token:      CONSTANTS.HOST_API + '/api/users/me/token',
-    signal:     CONSTANTS.HOST_API + '/api/signal',
+    login:      CONSTANTS.HOST_API + '/login',
+    register:   CONSTANTS.HOST_API + '/users',
+    profile:    CONSTANTS.HOST_API + '/users/me',
+    token:      CONSTANTS.HOST_API + '/users/me/token',
+    signal:     CONSTANTS.HOST_API + '/signal',
 
     photo:      CONSTANTS.HOST_PLATONIX + '/platonix/photo',
 
