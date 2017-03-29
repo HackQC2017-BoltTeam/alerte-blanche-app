@@ -1,8 +1,10 @@
-## Open file
+# Alerte Blanche
 
-nano node_modules/react-router-native/Link.js
+## Fix Library React-router
 
-## Replace in handlePress
+1. Open file
+`nano node_modules/react-router-native/Link.js`
 
-const { to, replace, onPress } = this.props
-if (onPress) onPress()
+2. Replace in handlePress
+```const { to, replace, onPress } = this.props
+if (onPress) onPress()```
